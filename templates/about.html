@@ -17,7 +17,7 @@
 
   <title>Title page</title>  
 
-<link href="main.3f6952e4.css" rel="stylesheet"></head>
+<link href="{{url_for('static', filename='main.3f6952e4.css')}}" rel="stylesheet"></head>
 
 <body class="">
 <div id="site-border-left"></div>
@@ -37,10 +37,10 @@
 
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav ">
-          <li><a href="./index.html" title="">01 : Home</a></li>
-          <li><a href="./works.html" title="">02 : Works</a></li>
-          <li><a href="./about.html" title="">03 : About me</a></li>
-          <li><a href="./contact.html" title="">04 : Contact</a></li>
+          <li><a href="/" title="">01 : Home</a></li>
+          <li><a href="/works" title="">02 : Works</a></li>
+          <li><a href="/about" title="">03 : About me</a></li>
+          <li><a href="/contact" title="">04 : Contact</a></li>
         </ul>
 
 
@@ -73,7 +73,7 @@
                   Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus iaculis magna sagittis elit sagittis, at hendrerit lorem venenatis. Morbi accumsan iaculis blandit. Cras ultrices hendrerit nisl.</p>
                 </div>
                 <div class="col-xs-12 col-md-6">
-                  <img src="assets/images/profil.jpg" class="img-responsive" alt="">
+                  <img src="static/assets/images/profil.jpg" class="img-responsive" alt="">
                 </div>
               </div>
             </div>
@@ -115,6 +115,6 @@
   ga('send', 'pageview');
 </script>
 
---> <script type="text/javascript" src="main.70a66962.js"></script></body>
+--> <script type="text/javascript" src="{{url_for('static', filename='main.70a66962.js')}}"></script></body>
 
 </html>
