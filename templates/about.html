@@ -12,8 +12,8 @@
   <!-- Disable tap highlight on IE  -->
   <meta name="msapplication-tap-highlight" content="no">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-icon-180x180.png">
-  <link href="assets/favicon.ico" rel="icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/apple-icon-180x180.png') }}">
+  <link href="{{ url_for('static', filename='assets/favicon.ico') }}" rel="icon">
 
   <title>Title page</title>  
 
@@ -73,7 +73,7 @@
                   Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus iaculis magna sagittis elit sagittis, at hendrerit lorem venenatis. Morbi accumsan iaculis blandit. Cras ultrices hendrerit nisl.</p>
                 </div>
                 <div class="col-xs-12 col-md-6">
-                  <img src="static/assets/images/profil.jpg" class="img-responsive" alt="">
+                  <img src="{{ url_for('static', filename='assets/images/profil.jpg') }}" class="img-responsive" alt="">
                 </div>
               </div>
             </div>
