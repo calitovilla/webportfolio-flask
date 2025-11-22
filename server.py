@@ -1,15 +1,18 @@
+"""Server file for Flask Portfolio Web Application."""
+
 from flask import Flask, render_template, request, url_for, redirect
 from jinja2 import TemplateNotFound
 
 app = Flask(__name__)
-app.secret_key = 'tu_clave_secreta' 
 
 @app.route("/")
 def home():
+    """Home page."""
     return render_template("index.html")
 
 @app.route('/<path:subpath>')
 def page(subpath):
+    """Page to render subpages."""
     try:
         return render_template(f"{subpath}.html")
     except TemplateNotFound:
@@ -17,19 +20,20 @@ def page(subpath):
 
 @app.route('/thankyou')
 def thankyou():
+    """Thank you page after form submission."""
     email = request.args.get('email')
-    return render_template('thankyou.html', email=email)
+    try:
+        return render_template('thankyou.html', email=email)
+    except TemplateNotFound:
+        return "Page not found", 404
 
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
-    error = None
+    """Handles form submission."""
     if request.method == 'POST':
-        try:
-            data = request.form.to_dict()
-            email = data.get('email')
-            return redirect(url_for('thankyou', email=email))
-        except Exception as e:
-            error = str(e)
-            return f"An error occurred: {error}"
-    else:
-        return "Something went wrong. Try again!"
+        data = request.form.to_dict()
+        email = data.get('email')
+        if not email:
+            return "Missing required field: email", 400
+        return redirect(url_for('thankyou', email=email))
+    return "Something went wrong. Try again!", 400
