@@ -1,7 +1,15 @@
 """Server file for Flask Portfolio Web Application."""
 
+# This import is for private deployment settings, not included in the repository
+try:
+    import deploy_private # pylint: disable=W0611 # type: ignore
+except ImportError:
+    pass
+
+
 from flask import Flask, render_template, request, url_for, redirect
 from jinja2 import TemplateNotFound
+
 
 app = Flask(__name__)
 
